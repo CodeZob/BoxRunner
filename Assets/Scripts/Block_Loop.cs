@@ -8,6 +8,10 @@ public class Block_Loop : MonoBehaviour {
 	public GameObject A_Zone;
 	public GameObject B_Zone;
 
+	void Awake()
+	{
+	}
+
 	void Update()
 	{
 		Move();

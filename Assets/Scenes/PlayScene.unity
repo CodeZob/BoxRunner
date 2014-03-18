@@ -116,7 +116,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ec14651380f774420a86117a3d10c5d5, type: 2}
+  - {fileID: 2100000, guid: b0910cc63d6d15e448971a45ba2fadc3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -188,7 +188,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ec14651380f774420a86117a3d10c5d5, type: 2}
+  - {fileID: 2100000, guid: b0910cc63d6d15e448971a45ba2fadc3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -316,11 +316,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fSpeed: 7
   Blocks:
-  - {fileID: 100008, guid: 0760d39f2ebe548498b8d6ad7fb57f5a, type: 2}
-  - {fileID: 100008, guid: f781e0ed1532d49f1ac60201e4d7fe44, type: 2}
-  - {fileID: 100008, guid: 2ff8bc4410e074f10bfee342ec17c63b, type: 2}
-  - {fileID: 100008, guid: 2eea57a09c7a04f53aa577b906e00e77, type: 2}
-  - {fileID: 100004, guid: 4705626f6e2a54a7ba54373608fac422, type: 2}
+  - {fileID: 100008, guid: b6659b808ce7a9b43ad728fa4b392c4f, type: 2}
+  - {fileID: 100000, guid: 73e8fbbc75b0fad4fb3fe40f0717b407, type: 2}
+  - {fileID: 100004, guid: 4aeb64887e9f67c4f81ad70e66cf8b5a, type: 2}
+  - {fileID: 100000, guid: 32bc8fc7abcf4ae4091834ee7d82a97e, type: 2}
+  - {fileID: 100000, guid: 108e866f9bec5b3439081c17ed001b8d, type: 2}
+  - {fileID: 100082, guid: c160c62d0ee52514095f87ee597e0d32, type: 2}
   A_Zone: {fileID: 1689171204}
   B_Zone: {fileID: 359188993}
 --- !u!4 &711218156
@@ -482,6 +483,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: dd2871b2278e94b5c925de04820e773f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b0910cc63d6d15e448971a45ba2fadc3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd2871b2278e94b5c925de04820e773f, type: 2}
   m_RootGameObject: {fileID: 1689171204}
