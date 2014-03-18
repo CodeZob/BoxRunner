@@ -4,7 +4,7 @@ using System.Collections;
 public class Block_Loop : MonoBehaviour {
 
 	public float fSpeed = 3;
-	public GameObject Block;
+	public GameObject[] Blocks;
 	public GameObject A_Zone;
 	public GameObject B_Zone;
 
@@ -20,16 +20,17 @@ public class Block_Loop : MonoBehaviour {
 
 		if(B_Zone.transform.position.x <= 0)
 		{
-			SwapZone();
-			//Destroy(A_Zone);
-			//A_Zone = B_Zone;
-			//Make();
+			//SwapZone();
+			Destroy(A_Zone);
+			A_Zone = B_Zone;
+			Make();
 		}
 	}
 
 	void Make()
 	{
-		B_Zone = Instantiate(Block, new Vector3(A_Zone.transform.position.x + 30, -5, 0), transform.rotation) as GameObject;
+		int nIndex = Random.Range(0, Blocks.Length);
+		B_Zone = Instantiate(Blocks[nIndex], new Vector3(A_Zone.transform.position.x + 30, -5, 0), transform.rotation) as GameObject;
 	}
 
 	void SwapZone()
