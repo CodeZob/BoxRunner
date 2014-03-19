@@ -9,15 +9,24 @@ public enum PlayerState
 	DEATH
 }
 
+public enum Sound
+{
+	COIN,
+	DEATH,
+	JUMP
+}
+
 public class Player_Ctrl : MonoBehaviour {
 
 	public PlayerState ePS;
 
 	public float fJumpPower = 500.0f;
 
+	public AudioClip[] Sounds;
+
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.Space) && ePS != PlayerState.DEATH)
 		{
 			if(ePS == PlayerState.JUMP)
 			{
@@ -59,15 +68,15 @@ public class Player_Ctrl : MonoBehaviour {
 	void Jump()
 	{
 		ePS = PlayerState.JUMP;
-
 		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+		SoundPlay(Sound.JUMP);
 	}
 
 	void DJump()
 	{
 		ePS = PlayerState.DJUMP;
-
 		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+		SoundPlay(Sound.JUMP);
 	}
 
 	void Run()
@@ -77,11 +86,18 @@ public class Player_Ctrl : MonoBehaviour {
 
 	void CoinGet()
 	{
+		audio.PlayOneShot(Sounds[0]);
 	}
 
 	void GameOver()
 	{
 		ePS = PlayerState.DEATH;
-		this.collider.enabled = false;
+		SoundPlay(Sound.DEATH);
+	}
+
+	void SoundPlay(Sound snd)
+	{
+		audio.clip = Sounds[(int)snd];
+		audio.Play();
 	}
 }
