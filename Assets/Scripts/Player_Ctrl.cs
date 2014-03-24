@@ -20,23 +20,35 @@ public class Player_Ctrl : MonoBehaviour {
 
 	public PlayerState ePS;
 
-	public float fJumpPower = 500.0f;
+	public float fJumpPower = 13.0f;
+	private bool bIsJump;
 
 	public AudioClip[] Sounds;
+
+	public Animator animator;
 
 	void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.Space) && ePS != PlayerState.DEATH)
 		{
+			bIsJump = true;
+		}
+	}
+
+	void FixedUpdate()
+	{
+		if(bIsJump)
+		{
 			if(ePS == PlayerState.JUMP)
 			{
 				DJump();
 			}
-
+			
 			if(ePS == PlayerState.RUN)
 			{
 				Jump();
 			}
+			bIsJump = false;
 		}
 	}
 
@@ -68,20 +80,32 @@ public class Player_Ctrl : MonoBehaviour {
 	void Jump()
 	{
 		ePS = PlayerState.JUMP;
-		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+//		fJumpPower = (fJumpPower * 50.0f) * Time.deltaTime;
+//		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+		rigidbody.velocity = new Vector3(0.0f, fJumpPower, 0.0f);
 		SoundPlay(Sound.JUMP);
+
+		animator.SetTrigger("Jump");
+		animator.SetBool("Ground", false);
 	}
 
 	void DJump()
 	{
 		ePS = PlayerState.DJUMP;
-		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+//		fJumpPower = (fJumpPower * 70.0f) * Time.deltaTime;
+//		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
+		rigidbody.velocity = new Vector3(0.0f, fJumpPower, 0.0f);
 		SoundPlay(Sound.JUMP);
+
+		animator.SetTrigger("D_Jump");
+		animator.SetBool("Ground", false);
 	}
 
 	void Run()
 	{
 		ePS = PlayerState.RUN;
+
+		animator.SetBool("Ground", true);
 	}
 
 	void CoinGet()

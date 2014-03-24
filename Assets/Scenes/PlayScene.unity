@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af70db1dd155e43e58aa2a6aed08581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fSpeed: 10
+  fSpeed: 7
   Blocks:
   - {fileID: 100008, guid: b6659b808ce7a9b43ad728fa4b392c4f, type: 2}
   - {fileID: 100000, guid: 73e8fbbc75b0fad4fb3fe40f0717b407, type: 2}
@@ -1839,7 +1839,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 898470000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -1882,7 +1882,7 @@ Transform:
   m_GameObject: {fileID: 898470000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.00000024, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.29999995, y: 1.29999995, z: 1.29999995}
   m_Children:
   - {fileID: 1688711982}
   m_Father: {fileID: 0}
@@ -1913,11 +1913,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ePS: 0
-  fJumpPower: 700
+  fJumpPower: 15
   Sounds:
   - {fileID: 8300000, guid: af9bee2e8ed70644886f2d39c1c89426, type: 3}
   - {fileID: 8300000, guid: 7b2d31b4ddbcdb0468ef68d08505191e, type: 3}
   - {fileID: 8300000, guid: 407a27cf6b81ca24ebfb1a7be66999ff, type: 3}
+  animator: {fileID: 1688711983}
 --- !u!82 &898470007
 AudioSource:
   m_ObjectHideFlags: 0
