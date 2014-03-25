@@ -9,7 +9,7 @@ public enum PlayerState
 	DEATH
 }
 
-public enum Sound
+public enum ESound
 {
 	COIN,
 	DEATH,
@@ -26,6 +26,10 @@ public class Player_Ctrl : MonoBehaviour {
 	public AudioClip[] Sounds;
 
 	public Animator animator;
+
+	public GameObject AnotherSpeaker;
+
+	public ParticleSystem Cloud;
 
 	void Update()
 	{
@@ -83,10 +87,13 @@ public class Player_Ctrl : MonoBehaviour {
 //		fJumpPower = (fJumpPower * 50.0f) * Time.deltaTime;
 //		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
 		rigidbody.velocity = new Vector3(0.0f, fJumpPower, 0.0f);
-		SoundPlay(Sound.JUMP);
+//		SoundPlay(ESound.JUMP);
+		AnotherSpeaker.SendMessage("SoundPlay");
 
 		animator.SetTrigger("Jump");
 		animator.SetBool("Ground", false);
+
+		Cloud.Stop();
 	}
 
 	void DJump()
@@ -95,10 +102,13 @@ public class Player_Ctrl : MonoBehaviour {
 //		fJumpPower = (fJumpPower * 70.0f) * Time.deltaTime;
 //		rigidbody.AddForce(new Vector3(0.0f, fJumpPower, 0.0f));
 		rigidbody.velocity = new Vector3(0.0f, fJumpPower, 0.0f);
-		SoundPlay(Sound.JUMP);
+//		SoundPlay(ESound.JUMP);
+		AnotherSpeaker.SendMessage("SoundPlay");
 
 		animator.SetTrigger("D_Jump");
 		animator.SetBool("Ground", false);
+
+		Cloud.Stop();
 	}
 
 	void Run()
@@ -106,6 +116,8 @@ public class Player_Ctrl : MonoBehaviour {
 		ePS = PlayerState.RUN;
 
 		animator.SetBool("Ground", true);
+
+		Cloud.Play();
 	}
 
 	void CoinGet()
@@ -116,10 +128,10 @@ public class Player_Ctrl : MonoBehaviour {
 	void GameOver()
 	{
 		ePS = PlayerState.DEATH;
-		SoundPlay(Sound.DEATH);
+		SoundPlay(ESound.DEATH);
 	}
 
-	void SoundPlay(Sound snd)
+	void SoundPlay(ESound snd)
 	{
 		audio.clip = Sounds[(int)snd];
 		audio.Play();
