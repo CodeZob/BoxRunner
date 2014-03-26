@@ -18,11 +18,15 @@ public class Gui_Layout : MonoBehaviour
 	}
 
 	public positionType _positionType = positionType.Middle;
-	public float margin_x;
-	public float margin_y;
+	public float edit_margin_x;
+	public float edit_margin_y;
+	float margin_x;
+	float margin_y;
 	public int _depth;
 	float screenX;
 	float screenY;
+	float scaleX;
+	float scaleY;
 	GUIText _gui_text;
 	GUITexture _gui_texture;
 	float _guiWidth;
@@ -38,12 +42,17 @@ public class Gui_Layout : MonoBehaviour
 		_gui_texture = GetComponent<GUITexture> ();
 		screenX = Screen.width;
 		screenY = Screen.height;
+		scaleX = screenX / 960;
+		scaleY = screenY / 640;
 		
 		
 		
 		if (_gui_texture != null) {
 			_guiWidth = _gui_texture.pixelInset.width;
 			_guiHeight = _gui_texture.pixelInset.height;
+
+			_guiWidth *= scaleX;
+			_guiHeight *= scaleY;
 		}
 
 		PositionSetting ();
@@ -60,6 +69,8 @@ public class Gui_Layout : MonoBehaviour
 		_gui_texture = GetComponent<GUITexture> ();
 		screenX = Screen.width;
 		screenY = Screen.height;
+		scaleX = screenX / 960;
+		scaleY = screenY / 640;
 		
 		
 		
@@ -74,7 +85,9 @@ public class Gui_Layout : MonoBehaviour
 				_guiHeight = _gui_texture.texture.height;
 				TextureIN =false;
 			}
-			
+
+			_guiWidth *= scaleX;
+			_guiHeight *= scaleY;
 		}
 		
 		this.gameObject.transform.position = new Vector3 (0, 0, -0.01f * _depth);
@@ -85,6 +98,8 @@ public class Gui_Layout : MonoBehaviour
 
 	void PositionSetting ()
 	{
+		margin_x = edit_margin_x * scaleX;
+		margin_y = edit_margin_y * scaleY;
 		switch (_positionType) {
 		case positionType.TopLeft:
 

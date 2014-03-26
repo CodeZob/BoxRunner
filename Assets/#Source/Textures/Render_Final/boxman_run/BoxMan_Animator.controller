@@ -116,7 +116,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Run
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: a76995240e47546c3855bfd4822e1725, type: 2}
@@ -131,7 +131,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Jump
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: e57e8bf525d3d45379aae9b8706f7634, type: 2}
@@ -146,7 +146,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: D_Jump
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 67ba16c48d23a49d084cf0860c74f21d, type: 2}
@@ -175,14 +175,14 @@ StateMachine:
       second:
       - {fileID: 110100000}
     data:
-      first: {fileID: 110232935}
-      second:
-      - {fileID: 110144341}
-    data:
       first: {fileID: 110216142}
       second:
       - {fileID: 110100023}
       - {fileID: 110196662}
+    data:
+      first: {fileID: 110232935}
+      second:
+      - {fileID: 110144341}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
