@@ -20,6 +20,7 @@ public class Gui_Layout : MonoBehaviour
 	public positionType _positionType = positionType.Middle;
 	public float edit_margin_x;
 	public float edit_margin_y;
+	public int edit_fontSize;
 	float margin_x;
 	float margin_y;
 	public int _depth;
@@ -55,6 +56,11 @@ public class Gui_Layout : MonoBehaviour
 			_guiHeight *= scaleY;
 		}
 
+		if(_gui_text != null)
+		{
+			_gui_text.fontSize = (int)(edit_fontSize * (scaleX));
+		}
+
 		PositionSetting ();
 		#endif
 		
@@ -88,6 +94,11 @@ public class Gui_Layout : MonoBehaviour
 
 			_guiWidth *= scaleX;
 			_guiHeight *= scaleY;
+		}
+
+		if(_gui_text != null)
+		{
+			_gui_text.fontSize = (int)(edit_fontSize * (scaleX));
 		}
 		
 		this.gameObject.transform.position = new Vector3 (0, 0, -0.01f * _depth);
