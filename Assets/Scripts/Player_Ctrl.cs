@@ -31,6 +31,8 @@ public class Player_Ctrl : MonoBehaviour {
 
 	public ParticleSystem Cloud;
 
+	public GameManager GM;
+
 	void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.Space) && ePS != PlayerState.DEATH)
@@ -123,12 +125,15 @@ public class Player_Ctrl : MonoBehaviour {
 	void CoinGet()
 	{
 		audio.PlayOneShot(Sounds[0]);
+		GM.CoinGet();
 	}
 
 	void GameOver()
 	{
 		ePS = PlayerState.DEATH;
 		SoundPlay(ESound.DEATH);
+
+		GM.GameOver();
 	}
 
 	void SoundPlay(ESound snd)
