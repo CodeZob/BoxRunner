@@ -39,6 +39,14 @@ public class Player_Ctrl : MonoBehaviour {
 		{
 			bIsJump = true;
 		}
+
+		if(Input.touchCount > 0)
+		{
+			if(Input.GetTouch(0).phase == TouchPhase.Began)
+			{
+				bIsJump = true;
+			}
+		}
 	}
 
 	void FixedUpdate()
@@ -125,7 +133,11 @@ public class Player_Ctrl : MonoBehaviour {
 	void CoinGet()
 	{
 		audio.PlayOneShot(Sounds[0]);
-		GM.CoinGet();
+
+		if(GM != null)
+		{
+			GM.CoinGet();
+		}
 	}
 
 	void GameOver()
